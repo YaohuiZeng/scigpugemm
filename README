@@ -1,0 +1,62 @@
+SciGPU-GEMM Library
+===================
+
+
+SciGPU-GEMM is a library of wrapper functions to help use the GEMM routines from CUBLAS on GPUs with
+a) Limited memory
+b) No double precision hardware
+
+The GEMMcleaver class enables DGEMM and SGEMM calls to run on limited memory GPUs, by performing a series of multiplications between sub-matrices.
+
+The MGEMM class circumvents a lack of double precision GPU hardware by performing most of the multiplication on the GPU in single precision, and handling the remainder in double precision on the CPU.
+
+
+Documentation
+-------------
+
+The code is documented with doxygen.
+cd docs/
+make docs
+will build the HTML and LaTeX manuals. If only documentation on the public portion of the code is required, use
+make docs-public
+instead.
+
+Building
+--------
+
+To build the library
+cd src/
+make
+The library is placed in the lib/ directory. The Makefile assumes that $CPATH includes the path to the CUDA header files
+
+
+Examples
+--------
+
+Several examples are provided in the examples/ directory. These can be used to test the library, as well as generate some performance statistics. To build an example, run
+make
+in the appropriate directory. The binaries are placed in the bin/ directory (which will be created if necessary). Before building the examples, make sure that your $CPATH, $LIBRARY_PATH and $LD_LIBRARY_PATH will all enable the compiler and linker to find CBLAS/ATLAS and CUDA
+
+
+Full Build
+----------
+
+In the current directory, enter
+make
+to build the entire package. This runs each of the make commands described above.
+
+
+
+Contacts
+--------
+
+This software was written by Richard Edgar <richard_edgar@harvard.edu>
+
+
+Copying
+-------
+
+(c) 2009 President and Fellows of Harvard College
+
+This software is distributed under the terms of the GNU Lesser General Public License
+See the file COPYING and COPYING.LESSER for further information

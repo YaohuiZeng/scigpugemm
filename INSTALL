@@ -1,0 +1,34 @@
+Installation Instructions
+-------------------------
+
+At some point, a 'configure' script may appear, for now things are quite basic.
+
+
+Compiling the Library
+---------------------
+
+To compile the library, do
+cd src/
+make
+Before this, you will need to set up your environment variables, specifically CPATH:
+export CPATH="/path/to/cuda/toolkit/include/"
+
+
+Compiling the Examples
+----------------------
+
+To compile the examples, do
+cd <example>
+make
+In addition to CPATH, you will need to ensure that LIBRARY_PATH and LD_LIBRARY_PATH enable the compiler to find CBLAS/ATLAS and CUDA. Something akin to
+export CPATH="/path/to/cuda/toolkit/include/:/usr/include/atlas"
+export LIBRARY_PATH="/path/to/cuda/toolkit/lib:/usr/lib64/atlas"
+export LD_LIBRARY_PATH="/path/to/cuda/toolkit/lib:/usr/lib64/atlas"
+
+
+Full Build
+----------
+
+From the base directory (the one containing this file) simply enter
+make
+once all the environment variables have been set up
