@@ -540,7 +540,7 @@ namespace SciGPUgemm {
       // Get the maximum allowed amount of memory
       maxMem = this->maxGPUmemory;
       if( maxMem == 0 ) {
-	unsigned int free, total;
+	size_t free, total;
 	
 	/*
 	  This call is in the driver API so the GPU context must be 
